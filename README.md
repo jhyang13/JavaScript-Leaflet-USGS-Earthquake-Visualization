@@ -12,7 +12,7 @@ https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
 The default file on web servers.
 
 ### static/js folder
-logic.js is final coding file.
+logic.js is the final coding file.
 
 ### static/css folder
 style.css contains legend settings
