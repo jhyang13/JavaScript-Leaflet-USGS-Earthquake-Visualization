@@ -1,147 +1,162 @@
----
-title: "Module 15 Challenge"
----
 <div id="bootcamp"><img style="display: none;" src="https://static.bc-edx.com/data/dl-1-2/m15/lms/img/banner.jpg" alt="lesson banner" />
 
-### Background
+# Global Earthquake Monitoring Dashboard
 
-The United States Geological Survey, or USGS for short, is responsible for providing scientific data about natural hazards, the health of our ecosystems and environment, and the impacts of climate and land-use change. Their scientists develop new methods and tools to supply timely, relevant, and useful information about the Earth and its processes.
+## Overview
 
-The USGS is interested in building a new set of tools that will allow them to visualize their earthquake data. They collect a massive amount of data from all over the world each day, but they lack a meaningful way of displaying it. In this challenge, you have been tasked with developing a way to visualize USGS data that will allow them to better educate the public and other government organizations (and hopefully secure more funding) on issues facing our planet.
+This project visualizes global seismic activity through an interactive geospatial dashboard built with Leaflet.js and real-time earthquake data from the United States Geological Survey (USGS).
 
-### Before You Begin
+The dashboard transforms raw geospatial earthquake records into an intuitive visual experience, allowing users to explore earthquake magnitude, depth, and location through dynamic mapping and interactive data layers.
 
-1. Create a new repository for this project called `leaflet-challenge`. **Do not add this Challenge to an existing repository**.
+The project demonstrates how real-time environmental data can be integrated, analyzed, and communicated through modern web-based visualization tools.
 
-2. Clone the new repository to your computer.
+---
 
-3. Inside your local git repository, create a directory for the Leaflet challenge. Use the folder names to correspond to the challenges: **Leaflet-Part-1** and **Leaflet-Part-2**.
+# Project Objectives
 
-4. This Challenge uses both **HTML** and **JavaScript**, so be sure to add all the necessary files. These will be the main files to run for analysis.
+The primary goals of this project are to:
 
-5. Push the above changes to GitHub.
+* Visualize global earthquake activity using interactive maps
+* Integrate real-time geospatial data from public APIs
+* Explore relationships between earthquake magnitude and depth
+* Build dynamic geographic visualizations for public awareness
+* Apply GIS and mapping techniques to scientific datasets
+* Create intuitive visual tools for environmental monitoring
 
-### Files
+---
 
-Download the following files to help you get started:
+# Data Source
 
-[Module 15 Challenge files](https://static.bc-edx.com/data/dl-1-2/m15/lms/starter/Starter_Code.zip)
+Earthquake data is retrieved from the United States Geological Survey (USGS) GeoJSON feed.
 
-### Instructions
+The dataset includes:
 
-The instructions for this activity are broken into two parts:
+* Earthquake magnitude
+* Geographic coordinates
+* Depth measurements
+* Event locations
+* Event timestamps
+* Seismic activity metadata
 
-* Part 1: Create the Earthquake Visualization
+The data is continuously updated by the USGS and provides near real-time information about global earthquake activity.
 
-* Part 2: Gather and Plot More Data (Optional with no extra points earning)
+---
 
-### Part 1: Create the Earthquake Visualization
+# Dashboard Features
 
-![2-BasicMap](https://static.bc-edx.com/data/dl-1-2/m15/lms/img/2-BasicMap.jpg)
+## Interactive Earthquake Map
 
-Your first task is to visualize an earthquake dataset. Complete the following steps:
+Built an interactive Leaflet map displaying earthquake events worldwide.
 
-1. Get your dataset. To do so, follow these steps:
+Each earthquake is plotted using geographic coordinates and can be explored directly through map interactions.
 
-   * The USGS provides earthquake data in a number of different formats, updated every 5 minutes. Visit the [USGS GeoJSON Feed](http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) page and choose a dataset to visualize. The following image is an example screenshot of what appears when you visit this link:
+---
 
-   ![3-Data](https://static.bc-edx.com/data/dl-1-2/m15/lms/img/3-Data.jpg)
+## Magnitude-Based Visualization
 
-    * When you click a dataset (such as "All Earthquakes from the Past 7 Days"), you will be given a JSON representation of that data. Use the URL of this JSON to pull in the data for the visualization. The following image is a sampling of earthquake data in JSON format:
+Marker size is scaled according to earthquake magnitude.
 
-   ![4-JSON](https://static.bc-edx.com/data/dl-1-2/m15/lms/img/4-JSON.jpg)
+This allows users to quickly identify major seismic events and distinguish them from smaller earthquakes.
 
-2. Import and visualize the data by doing the following:
+Visual scaling helps communicate earthquake intensity without requiring additional filtering.
 
-   * Using Leaflet, create a map that plots all the earthquakes from your dataset based on their longitude and latitude.
+---
 
-       * Your data markers should reflect the magnitude of the earthquake by their size and the depth of the earthquake by color. Earthquakes with higher magnitudes should appear larger, and earthquakes with greater depth should appear darker in color.
+## Depth Analysis
 
-       * **Hint:** The depth of the earth can be found as the third coordinate for each earthquake.
+Earthquake depth is represented through color coding.
 
-   * Include popups that provide additional information about the earthquake when its associated marker is clicked.
+Color gradients provide immediate visual context regarding:
 
-   * Create a legend that will provide context for your map data.
+* Shallow earthquakes
+* Intermediate-depth earthquakes
+* Deep seismic events
 
-   * Your visualization should look something like the preceding map.
+This approach enables simultaneous analysis of multiple earthquake characteristics.
 
-- - -
+---
 
-### Part 2: Gather and Plot More Data (Optional with no extra points earning)
+## Interactive Event Information
 
-Plot a second dataset on your map to illustrate the relationship between tectonic plates and seismic activity. You will need to pull in this dataset and visualize it alongside your original data. Data on tectonic plates can be found at <https://github.com/fraxen/tectonicplates>.
+Each earthquake marker includes an interactive popup displaying:
 
-This part is completely optional; you can complete this part as a way to challenge yourself and boost your new skills.
+* Magnitude
+* Geographic location
+* Depth information
+* Event details
 
-The following image is an example screenshot of what you should produce:
+Users can explore individual earthquake records directly from the map interface.
 
-![5-Advanced](https://static.bc-edx.com/data/dl-1-2/m15/lms/img/5-Advanced.jpg)
+---
 
-Perform the following tasks:
+## Dynamic Legend
 
-* Plot the tectonic plates dataset on the map in addition to the earthquakes.
+A custom legend was implemented to provide interpretation of color-coded depth values.
 
-* Add other base maps to choose from.
+The legend improves usability and supports accurate reading of the visualization.
 
-* Put each dataset into separate overlays that can be turned on and off independently.
+---
 
-* Add layer controls to your map.
+## Geospatial Exploration
 
-### Requirements
+The dashboard supports exploration of global seismic activity patterns, including:
 
-These requirements apply only to "Part 1: Create the Earthquake Visualization" as "Part 2" is optional with no extra points earning.
+* Regional earthquake clustering
+* High-risk seismic zones
+* Distribution of earthquake depth
+* Relative event intensity
 
-#### Map (60 points)
+---
 
-* TileLayer loads without error (20 points)
+# Technologies Used
 
-* Connects to geojson API using D3 without error (20 points)
+* JavaScript
+* Leaflet.js
+* D3.js
+* HTML
+* CSS
+* GeoJSON
+* USGS Earthquake API
 
-* Markers with size corresponding to earthquake magnitude (10 points)
+---
 
-* A legend showing the depth and their corresponding color (10 points)
+# Key Skills Demonstrated
 
-#### Data Points (40 points)
+This project demonstrates experience with:
 
-* Data points scale with magnitude level (10 points)
+* Geospatial analytics
+* Interactive mapping
+* GIS visualization
+* GeoJSON processing
+* API integration
+* Data visualization
+* Dashboard development
+* Environmental data analysis
+* Real-time data applications
+* Front-end web development
 
-* Data points colors change with depth level (10 points)
+---
 
-* Each point has a tooltip with the Magnitude, the location and depth (10 points)
+# Key Insights
 
-* All data points load in the correct locations (10 points)
+Major observations from the visualization include:
 
-### Grading
+* Earthquake activity is concentrated along major tectonic boundaries.
+* Earthquake depth varies significantly across different geographic regions.
+* Large-magnitude events are relatively infrequent compared to smaller seismic events.
+* Interactive mapping provides a more effective way to communicate geospatial risk than static charts.
+* Combining magnitude and depth into a single visualization enables multidimensional analysis of seismic activity.
 
-This assignment will be evaluated against the requirements and assigned a grade according to the following table:
+---
 
-| Grade | Points |
-| --- | --- |
-| A (+/-) | 90+ |
-| B (+/-) | 80&ndash;89 |
-| C (+/-) | 70&ndash;79 |
-| D (+/-) | 60&ndash;69 |
-| F (+/-) | < 60 |
+# Deployment
 
-### Submission
+The dashboard is deployed through GitHub Pages and can be accessed directly through a web browser.
 
-To submit your Challenge assignment, click Submit, and then provide the URL of your GitHub repository for grading.
+---
 
-> **Note** You are allowed to miss up to two Challenge assignments and still earn your certificate. If you complete all Challenge assignments, your lowest two grades will be dropped. If you wish to skip this assignment, click Next, and move on to the next Module.
+# Disclaimer
 
-Comments are disabled for graded submissions in Bootcamp Spot. If you have questions about your feedback, please notify your instructional staff or your Student Success Manager. If you would like to resubmit your work for an additional review, you can use the Resubmit Assignment button to upload new links. You may resubmit up to three times for a total of four submissions.
+This project was completed for educational and portfolio purposes.
 
-> **Important:** **It is your responsibility to include a note in the README section of your repo specifying code source and its location within your repo**. This applies if you have worked with a peer on an assignment, used code in which you did not author or create sourced from a forum such as Stack Overflow, or you received code outside curriculum content from support staff such as an Instructor, TA, Tutor, or Learning Assistant. This will provide visibility to grading staff of your circumstance in order to avoid flagging your work as plagiarized.
->
-> If you are struggling with a Challenge or any aspect of the curriculum, please remember that there are student support services available for you:
->
-> 1. Office hours facilitated by your TA(s)
->
-> 2. Tutor sessions ([sign up](https://tinyurl.com/BootCampTutorTeam))
->
-> 3. Ask the class Slack channel/get peer support
->
-> 4. AskBCS Learning Assistants
-### References
-
-Dataset created by [the United States Geological Survey](http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
+Earthquake data is provided by the United States Geological Survey (USGS) and is used to demonstrate geospatial analytics, interactive mapping, and data visualization techniques.
